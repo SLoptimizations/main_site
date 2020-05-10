@@ -6,14 +6,17 @@ from django.core.mail import send_mass_mail, send_mail
 import pytracking
 from pytracking.html import adapt_html
 
-message1 = ('try1', 'message',"marketing/templates/email_page.html", 'SLop<SLoptimizations@gmail.com>', ['SLoptimizations@gmail.com'])
-message2 = ('try2', 'message',"marketing/templates/email_page.html", 'SLoptimizations@gmail.com', ['SLoptimizations@gmail.com'])
+message1 = ('try1', 'message', "marketing/templates/email_page.html", 'SLop<SLoptimizations@gmail.com>',
+            ['SLoptimizations@gmail.com'])
+message2 = (
+'try2', 'message', "marketing/templates/email_page.html", 'SLoptimizations@gmail.com', ['SLoptimizations@gmail.com'])
 # send_mass_mail((message1, message2), fail_silently=False)
 
 headers = {
     "Return-Receipt-To": 'SLoptimizations@gmail.com',
     "Disposition-Notification-To": 'SLoptimizations@gmail.com',
 }
+
 
 def read_html(filename):
     with open(filename, 'r', encoding='utf-8') as template_file:
@@ -34,6 +37,7 @@ def prepare_html(html_file_name, json, url_id):
     else:
         return new_html.replace('\n', '')
 
+
 def send_mass_html_mail(datatuple, fail_silently=False, user=None, password=None,
                         connection=None):
     """
@@ -53,7 +57,7 @@ def send_mass_html_mail(datatuple, fail_silently=False, user=None, password=None
     messages = []
     for subject, text, html, from_email, recipient in datatuple:
         message = EmailMultiAlternatives(subject, text, from_email, recipient, headers=headers)
-        html_content = prepare_html(html,'marketing/funcs/Sapir.json', '1')
+        html_content = prepare_html(html, 'marketing/funcs/Sapir.json', '1')
         new_html_email_text = adapt_html(
             html_content, extra_metadata={"customer_id": 1},
             click_tracking=True, open_tracking=True)
@@ -63,8 +67,6 @@ def send_mass_html_mail(datatuple, fail_silently=False, user=None, password=None
 
 
 send_mass_html_mail((message1, message2))
-
-
 
 #
 #

@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import EmailValidator
 from taggit.managers import TaggableManager
-
+# from netfields import InetAddressField
 
 # Create your models here.
 # class UserInfo(models.Model):
@@ -56,8 +56,11 @@ class Subscriber(models.Model):
     email = models.EmailField(max_length=100, blank=False, validators=[EmailValidator])
     unsubscribe = models.BooleanField(default=0)
     url_id = models.CharField(max_length=7, default='', blank=True)
-    sent = models.CharField(max_length=10, blank=False)
-    opened = models.CharField(max_length=10, blank=False)
+    ip = models.CharField(max_length=16, default='', blank=True)# InetAddressField()
+    sent = models.IntegerField(default=0)
+    opened = models.IntegerField(default=0)
+    clicked = models.IntegerField(default=0)
+
     next_email_index = models.ForeignKey(Email, on_delete=models.CASCADE)
     send_email_date = models.DateField()
 
