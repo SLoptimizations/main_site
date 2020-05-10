@@ -2,7 +2,7 @@ from django.shortcuts import render
 import uuid
 from .models import Subscriber, Email, Campaign
 from django.views.generic import TemplateView, View
-# from marketing.funcs.mail_management.main import send_mass_html_mail
+from marketing.funcs.mail_management.main import send_mass_html_mail
 from django.contrib.auth.models import User
 from pytracking import Configuration
 from pytracking.django import OpenTrackingView, ClickTrackingView
