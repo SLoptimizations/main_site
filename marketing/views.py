@@ -96,6 +96,7 @@ class MyOpenTrackingView(OpenTrackingView):
         # tracking_result.request_data["user_ip"] contains the user agent
         # and ip of the client.
         print(tracking_result)
+        print(tracking_result.request_data["user_agent"])
 
     # def notify_decoding_error(self, exception):
     #     # Called when the tracking link cannot be decoded

@@ -134,7 +134,7 @@ EMAIL_HOST_PASSWORD = 'cucjvfdbgeexvyid'
 
 PYTRACKING_CONFIGURATION = {
     "webhook_url": "http://up419.siz.co.il/up1/dnxinzmvjk5t.jpg",
-    "base_open_tracking_url": "http://127.0.0.1:8000/open/",
-    "base_click_tracking_url": "http://tracking.domain.com/click/",
+    "base_open_tracking_url": "http://www.sl-op.com/open/",
+    "base_click_tracking_url": "http://www.sl-op.com/click/",
     "default_metadata": {"analytics_key": "123456"}
 }

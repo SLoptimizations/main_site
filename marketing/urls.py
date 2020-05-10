@@ -7,9 +7,9 @@ from django.conf.urls import url
 
 urlpatterns = [
     # path('', views.AboutView.as_view(), name='about'),
-    path('', views.register, name='about'),
-    path('yoga_guide', views.VideoPageView.as_view(), name='all_video'),
-    path('unsubscribe', views.UnsubscribeView.as_view(), name='unsubscribe'),
+    # path('', views.register, name='about'),
+    # path('yoga_guide', views.VideoPageView.as_view(), name='all_video'),
+    # path('unsubscribe', views.UnsubscribeView.as_view(), name='unsubscribe'),
 
     url(r"^open/(?P<path>[\w=-]+)/$", views.MyOpenTrackingView.as_view(),
         name="open_tracking"),
