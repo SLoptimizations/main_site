@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-
+from marketing.funcs.resources import *
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -132,10 +132,11 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'SLoptimizations@gmail.com'
 EMAIL_HOST_PASSWORD = 'cucjvfdbgeexvyid'
 
+main_site = Myjson(json).get("html")["main_site"]
 
 PYTRACKING_CONFIGURATION = {
-    "webhook_url": "http://up419.siz.co.il/up1/dnxinzmvjk5t.jpg",
-    "base_open_tracking_url": "http://www.sl-op.com/open/",
-    "base_click_tracking_url": "http://www.sl-op.com/click/",
+    "webhook_url": f"{main_site}webhook/",
+    "base_open_tracking_url": f"{main_site}open/",
+    "base_click_tracking_url": f"{main_site}click/",
     "default_metadata": {"analytics_key": "123456"}
 }

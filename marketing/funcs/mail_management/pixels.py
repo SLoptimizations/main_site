@@ -13,7 +13,7 @@ import pytracking
 #
 #
 configuration = pytracking.Configuration(
-    base_open_tracking_url="http://www.sl-op.com/open/",
+    base_open_tracking_url="http://www.sl-op.com:5656/open/",
     webhook_url="http://up419.siz.co.il/up1/dnxinzmvjk5t.jpg",
     include_webhook_url=False)
 
