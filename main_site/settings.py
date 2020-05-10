@@ -132,7 +132,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'SLoptimizations@gmail.com'
 EMAIL_HOST_PASSWORD = 'cucjvfdbgeexvyid'
 
-main_site = Myjson(json).get("html")["main_site"]
+main_site = Myjson('marketing/funcs/Sapir.json').get("html")["main_site"]
 
 PYTRACKING_CONFIGURATION = {
     "webhook_url": f"{main_site}webhook/",
