@@ -24,7 +24,7 @@ def register(request):
         emails = Email.objects.get(campaign_id=campaign_id, index=1)
 
         user.next_email_index = 1
-        user.send_email_date = datetime.datetime.now()
+        user.send_email_date = datetime.datetime.now() + datetime.timedelta
         user.save()
 
         # send_mail(to=user.email,

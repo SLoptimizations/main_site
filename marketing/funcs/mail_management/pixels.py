@@ -1,4 +1,5 @@
 import pytracking
+from marketing.funcs.resources import *
 
 
 # open_tracking_url = pytracking.get_open_tracking_url(
@@ -12,9 +13,14 @@ import pytracking
 #
 #
 #
+
+main_site = Myjson('../Sapir.json').get("html")["main_site"]
+
+
 configuration = pytracking.Configuration(
-    base_open_tracking_url="http://www.sl-op.com:5656/open/",
-    webhook_url="http://up419.siz.co.il/up1/dnxinzmvjk5t.jpg",
+    # base_open_tracking_url="http://127.0.0.1:8000/open/",
+    base_open_tracking_url=f"{main_site}open/",
+    webhook_url=f"{main_site}webhoo/",
     include_webhook_url=False)
 
 open_tracking_url = pytracking.get_open_tracking_url(
