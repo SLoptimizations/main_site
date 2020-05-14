@@ -31,6 +31,10 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'django_filters',
+    'address',
+
+    'events_health.apps.EventsHealthConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'marketing.apps.MarketingConfig',
+
     'taggit',
 
 ]
@@ -57,7 +62,7 @@ ROOT_URLCONF = 'main_site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'marketing/templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'marketing/templates'),os.path.join(BASE_DIR, 'events_health/templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -140,3 +145,5 @@ PYTRACKING_CONFIGURATION = {
     "base_click_tracking_url": f"{main_site}click/",
     "default_metadata": {"analytics_key": "123456"}
 }
+
+GOOGLE_API_KEY = 'AIzaSyDW_yeWkfKrnGt05i8YnuXpUtnDO4hRhZM'

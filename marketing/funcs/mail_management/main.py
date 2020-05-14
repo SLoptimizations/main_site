@@ -66,7 +66,7 @@ def send_mass_html_mail(datatuple, fail_silently=False, user=None, password=None
     return connection.send_messages(messages)
 
 
-send_mass_html_mail((message1, message2))
+# send_mass_html_mail((message1, message2))
 
 #
 #

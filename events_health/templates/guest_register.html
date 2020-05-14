@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>Blog Template for Bootstrap</title>
+		<!-- Bootstrap core CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<link href="../static/bootstrap/css/bootstrap.css" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+		<link href="../static/css/blog.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<header class="blog-header py-3">
+				<a class="blog-header-logo text-dark" href="#">{{ event.partner1 }} &amp; {{ event.partner2 }}</a>
+				<div class="row flex-nowrap justify-content-between align-items-center">
+					<div class="col-4 text-center">
+</div>
+				</div>
+			</header>
+			<div class="jumbotron p-3 p-md-5 text-white rounded bg-dark" style="background-image: url('{{ event.img1 }}');">
+				<div class="col-md-6 px-0">
+					<h1 class="display-4 font-italic">{{ event.date }}</h1>
+					<p class="lead my-3">{{ event.hall_name }}, {{ event.event_location }}</p>
+					<p class="lead mb-0"></p>
+				</div>
+			</div>
+			<div class="row mb-2">
+</div>
+		</div>
+		<main role="main" class="container">
+			<div class="col-md-8 blog-main">
+				<div class="blog-post">
+					<h2 class="blog-post-title">אורח יקר,</h2>
+					<p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
+					<hr>
+					<blockquote>
+</blockquote>
+					<div class="container">
+						<h3>נא מלא/י את הפרטים הבאים:</h3>
+						<form action="" method="post">
+							{{ form.as_p }}
+
+							{% csrf_token %}
+							<input type="submit" value="Submit">
+						</form>
+					</div>
+					<p><br></p>
+					<p><br></p>
+					<pre></pre>
+				</div>
+				<!-- /.blog-post -->
+				<div class="blog-post">
+					<blockquote>
+</blockquote>
+				</div>
+				<!-- /.blog-post -->
+				<div class="blog-post">
+					<ul>
+</ul>
+				</div>
+				<!-- /.blog-post -->
+			</div>
+			<div class="row">
+				<!-- /.blog-main -->
+				<!-- /.blog-sidebar -->
+			</div>
+			<!-- /.row -->
+		</main>
+		<!-- /.container -->
+		<footer class="blog-footer">
+			<p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+			<p> <a href="#">Back to top</a> </p>
+		</footer>
+		<!-- Bootstrap core JavaScript
+    ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+		{#		
+		<script src="../static/assets/js/jquery.min.js"></script>				#}
+		{#		
+		<script src="../static/assets/js/popper.js"></script>				#}
+		{#		
+		<script src="../static/bootstrap/js/bootstrap.min.js"></script>				#}
+	</body>
+</html>
