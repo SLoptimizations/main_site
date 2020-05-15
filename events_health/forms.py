@@ -4,6 +4,8 @@ from django.utils.translation import gettext_lazy as _
 
 
 class GuestForm(forms.ModelForm):
+    # event = forms.For
+
     class Meta:
         model = Guest
         fields = ('name', 'age', 'address', 'phone')

@@ -22,7 +22,7 @@ class Event(models.Model):
 
 
 class Guest(models.Model):
-    event = models.ForeignKey(Event, on_delete=models.CASCADE,blank=True)
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=60, blank=False)
     age = models.IntegerField(default=0)
     address = AddressField()
