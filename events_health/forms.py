@@ -19,16 +19,18 @@ class GuestForm(forms.ModelForm):
 
 
 class HealthDeclarationForm(forms.Form):
-    FRESHMAN = 'FR'
-    SOPHOMORE = 'SO'
-    JUNIOR = 'JR'
-    SENIOR = 'SR'
-    GRADUATE = 'GR'
-    Q1 = dict(Q='שאלה1', A=[
-        (FRESHMAN, 'Freshman'),
-        (SOPHOMORE, 'Sophomore'),
-        (JUNIOR, 'Junior'),
-        (SENIOR, 'Senior'),
-        (GRADUATE, 'Graduate'),
+    YES = 10
+    NO = 5
+
+    Q1 = dict(Q='האם את/ה סובל ממחלות רקע?', A=[
+        (YES, 'לא'),
+        (NO, 'כן'),
+
+    ])
+    Q2 = dict(Q='האם אתה בבידוד?', A=[
+        (YES, 'לא'),
+        (NO, 'כן'),
+
     ])
     q1 = forms.ChoiceField(choices=Q1['A'], label=Q1['Q'])
+    q2 = forms.ChoiceField(choices=Q2['A'], label=Q2['Q'])

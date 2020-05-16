@@ -16,6 +16,7 @@ body {
     height: 100%;
     font-family: "Open Sans", sans-serif;
     -webkit-font-smoothing: antialiased;
+    background: linear-gradient(90deg, #C9D6FF, #E2E2E2);
     font-smoothing: antialiased;
 }
 
@@ -56,7 +57,7 @@ h6 {
 
 p {
     font-size: 14px;
-    color: #74757b;
+    color: #000000;
     line-height: 2;
 }
 
@@ -140,7 +141,7 @@ Commom elements
     border: none;
     font-size: 14px;
     font-weight: 600;
-    padding: 2%;
+    padding: 1%;
     border-radius: 50px;
     text-transform: uppercase;
     background: #99aaab;
@@ -148,6 +149,18 @@ Commom elements
     line-height: normal;
     cursor: pointer;
     text-align: center;
+    background-position: center;
+    background-origin: border-box;
+    width: 20%;
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .site-btn {
+        width: 20%;
+        padding: 2%;
+    }
 }
 
 .site-btn:hover {
@@ -620,9 +633,17 @@ Hero section
 
 .hs-text p {
     color: #000000;
+    font-size: 2.3vw;
+    margin-bottom: 13px;
+}
 
-    /* font-size: 1.5vw*/
-    margin-bottom: 0%;
+@media (min-width: 320px) and (max-width: 767px) {
+    .hs-text p {
+        color: #000000;
+        font-size: 4vw;
+        margin-bottom: 4px;
+        margin-top: -21px;
+    }
 }
 
 .hero-form {
@@ -1635,7 +1656,6 @@ Contact Page
 }
 
 p b {
-    color: #00a944;
 }
 
 h2 b {
@@ -1648,4 +1668,41 @@ h2 b {
     margin: auto;
     margin-bottom: 1%;
     height: 3%;
+}
+
+.date {
+    font-family: 'Parisienne', cursive;
+    font-size: 5vw;
+    font-weight: normal;
+    color: black;
+}
+
+.header {
+    color: #0b0b0b;
+    font-size: 5vw;
+    font-family: 'Ellinia CLM',serif ;
+}
+
+.site-btn span {
+    font-size: 2vw;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .header {
+        color: #0b0b0b;
+        font-size: 7vw;
+        font-family: 'Ellinia CLM',serif ;
+    }
+
+    .site-btn span {
+        font-size: 12px;
+    }
+}
+
+h3 {
+    font-size: 2.2vw;
+}
+
+h3 {
+    font-size: 2.2vw;
 }
