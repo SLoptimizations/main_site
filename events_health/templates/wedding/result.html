@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+<html lang="zxx" style="background: linear-gradient(90deg, #8E0E00, #1F1C18);"> 
+	<head> 
+		<title>SLop. - Event Health</title>
+		<meta charset="UTF-8"> 
+		<meta name="description" content="loans HTML Template"> 
+		<meta name="keywords" content="loans, html"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<!-- Favicon -->		 
+		<link href="../../static/img/favicon.ico" rel="shortcut icon"/> 
+		<!-- Google font -->		 
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet"> 
+		<!-- Stylesheets -->		 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="../../static/css/font-awesome.min.css"/> 
+		<link rel="stylesheet" href="../../static/css/owl.carousel.min.css"/> 
+		<link rel="stylesheet" href="../../static/css/flaticon.css"/> 
+		<link rel="stylesheet" href="../../static/css/slicknav.min.css"/>
+		<link href="../../static/css/wedding.css" rel="stylesheet" type="text/css">
+		<link href="../../static/css/MyCss.css" rel="stylesheet" type="text/css">
+		<!-- Main Stylesheets -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+		<!-- fonts -->
+		<link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+		<link href='http://serve.fontsproject.com/css?family=Ellinia+CLM:200' rel='stylesheet' type='text/css'>
+		<!-- Facebook Pixel Code -->		 
+		<noscript>
+			<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=991164471320626&ev=PageView&noscript=1"/>
+		</noscript>		 
+		<!-- End Facebook Pixel Code -->		 
+	</head>	 
+	<body style="background: linear-gradient(90deg, #ffe2c9, #E2E2E2);"> 
+		<!-- Page Preloder -->		 
+		<div id="preloder"> 
+			<div class="loader"></div>			 
+		</div>		 
+		<!-- Header Section -->		 
+		<!-- Header Section end -->		 
+		<!-- Hero Section end -->		 
+		<section class="hero-section"> 
+			<div class="container"> 
+				<div class="row" style="float: none; padding-bottom: -101px; text-align:center;"> 
+					<div style="background-color: rgba(231, 231, 231, 0.85); direction: rtl; padding-top: 19px; margin: -72px auto auto; width: 100%;
+
+
+max-width: 900px;" class="col-lg-12"> 
+						<div class="hs-text" style="direction: rtl; font-family: Rubik;padding-top: 16px; padding-left: 16px; padding-right: 16px;">
+							<h2 class="text-center"><ul class="header">
+									<span class="header">אור &amp; לירון</span>
+								</ul><ul>
+									<span class="date">14.06.2020</span>
+								</ul></h2>
+							<hr> 
+							<p class="bold-color">תודה על שיתוף הפעולה!</p>
+							{% if result == 'green' %}
+							<div class="alert alert-success" role="alert">כעת באפשרותך להכנס לאירוע בהצגת מסך זה או בהצגת הקוד:{{ guest_id }}</div>
+							{% elif result == 'yellow' %}
+							<div class="alert alert-danger" role="alert">
+								נדרש מידע נוסף על מנת לקבוע האם מצבך הבריאותי מאפשר את הגעתך לאירוע, נאמן בריאות ייצור איתך קשר.
+</div>
+							{% elif result == 'yellow' %}
+							<div class="alert alert-warning" role="alert">
+								לצערנו הרב בעקבות ההגבלות החדשות לא ניתן לאפשר את הגעתך לאירוע. אנו מתנצלים ומקווים שנוכל לחגוג יחד בהזדמנות נוספת.
+</div>
+							{% endif %}
+							<div>
+								<div>
+									<div class="field-input" style="text-align:center;"></div>
+									<p class="text-center" style="font-size: 22px; margin-bottom: 5%; color: #161415;"></p> 
+									<p class="text-center" style="font-size: 22px; color: #f40064;"><b style="font-size: 25px;"></b></p> 
+								</div>
+							</div>
+						</div>						 
+					</div>					 
+				</div>				 
+			</div>			 
+			<div class="hero-slider owl-carousel"> 
+				<div class="hs-item set-bg" data-setbg="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1181856013.jpg"></div>
+				<div class="hs-item set-bg" data-setbg="https://images.unsplash.com/photo-1563339037-84fb4e623969?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjIwOTIyfQ"></div>
+				<div class="hs-item set-bg" data-setbg="https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjIwOTIyfQ">
+</div>
+			</div>
+		</section>		 
+		<!-- Hero Section end -->		 
+		<!-- Why Section end -->		 
+		<!-- Why Section end -->		 
+		<!-- CTA Section end -->		 
+		<!-- CTA Section end -->		 
+		<!-- Feature Section -->		 
+		<!-- Feature Section end -->		 
+		<!-- Help Section -->		 
+		<!-- Help Section end -->		 
+		<!-- Info Section -->		 
+		<!-- Info Section end -->		 
+		<!-- Score Section end -->		 
+		<!-- Score Section end -->		 
+		<!-- Footer Section -->		 
+		<!-- Footer Section end -->
+{#        <br>#}
+{#		<footer id="sticky-footer" class="py-4 bg-dark text-white-50" style="background-image: linear-gradient(0deg, rgb(173, 169, 150) 0%, rgb(173, 169, 150) 0%);">#}
+{#			<div class="container text-center">#}
+{#				<small>Copyright &copy; SLop. 2020 </small>#}
+{#			</div>#}
+{#		</footer>#}
+		<!--====== Javascripts & Jquery ======-->		 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>		 
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>		 
+		<script src="../../static/js/jquery.slicknav.min.js"></script>		 
+		<script src="../../static/js/owl.carousel.min.js"></script>		 
+		<script src="../../static/js/jquery-ui.min.js"></script>		 
+		<script src="../../static/js/main.js"></script>		 
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>		 
+	</body>	 
+</html>

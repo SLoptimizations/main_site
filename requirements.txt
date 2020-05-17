@@ -13,6 +13,9 @@ configparser==5.0.0
 cryptography==2.9.2
 distlib==0.3.0
 Django==3.0.3
+django-address==0.2.2
+django-crispy-forms==1.9.0
+django-filter==2.2.0
 django-gulp==4.1.0
 django-ipware==2.1.0
 django-netfields==1.2.2
@@ -40,6 +43,7 @@ pytest==5.4.1
 python-dateutil==2.8.1
 pytracking==0.2.0
 pytz==2019.3
+qrcode==6.1
 requests==2.23.0
 six==1.11.0
 sqlparse==0.3.0

@@ -31,6 +31,10 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'django_filters',
+    'address',
+
+    'events_health.apps.EventsHealthConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,9 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'marketing.apps.MarketingConfig',
+    'crispy_forms',
     'taggit',
 
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -57,7 +65,7 @@ ROOT_URLCONF = 'main_site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'marketing/templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'marketing/templates'),os.path.join(BASE_DIR, 'events_health/templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -132,11 +140,13 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'SLoptimizations@gmail.com'
 EMAIL_HOST_PASSWORD = 'cucjvfdbgeexvyid'
 
-main_site = Myjson('marketing/funcs/Sapir.json').get("html")["main_site"]
+# main_site = Myjson('marketing/funcs/Sapir.json').get("html")["main_site"]
+#
+# PYTRACKING_CONFIGURATION = {
+#     "webhook_url": f"{main_site}webhook/",
+#     "base_open_tracking_url": f"{main_site}open/",
+#     "base_click_tracking_url": f"{main_site}click/",
+#     "default_metadata": {"analytics_key": "123456"}
+# }
 
-PYTRACKING_CONFIGURATION = {
-    "webhook_url": f"{main_site}webhook/",
-    "base_open_tracking_url": f"{main_site}open/",
-    "base_click_tracking_url": f"{main_site}click/",
-    "default_metadata": {"analytics_key": "123456"}
-}
+GOOGLE_API_KEY = 'AIzaSyDW_yeWkfKrnGt05i8YnuXpUtnDO4hRhZM'

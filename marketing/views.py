@@ -21,10 +21,10 @@ def register(request):
         user.url_id = str(uuid.uuid4()).split('-')[1]
         campaign_id = request.POST.get('campaign_id', '')
         user.campaign_id = campaign_id
-        emails = Email.objects.get(campaign_id=campaign_id, index=1)
+        first_email = Email.objects.get(campaign_id=campaign_id, index=1)
 
         user.next_email_index = 1
-        user.send_email_date = datetime.datetime.now()
+        user.send_email_date = datetime.datetime.now() + datetime.timedelta(hours=first_email.delay_H)
         user.save()
 
         # send_mail(to=user.email,
@@ -90,13 +90,15 @@ def register(request):
 
 
 class MyOpenTrackingView(OpenTrackingView):
+    def get(self, request, path):
+        print(request)
 
     def notify_tracking_event(self, tracking_result):
         # Override this method to do something with the tracking result.
         # tracking_result.request_data["user_agent"] and
         # tracking_result.request_data["user_ip"] contains the user agent
         # and ip of the client.
-        print(tracking_result)
+        print(tracking_result.metadata)
         print(tracking_result.request_data["user_agent"])
 
 
