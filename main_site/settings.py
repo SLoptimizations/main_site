@@ -140,13 +140,13 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'SLoptimizations@gmail.com'
 EMAIL_HOST_PASSWORD = 'cucjvfdbgeexvyid'
 
-main_site = Myjson('marketing/funcs/Sapir.json').get("html")["main_site"]
-
-PYTRACKING_CONFIGURATION = {
-    "webhook_url": f"{main_site}webhook/",
-    "base_open_tracking_url": f"{main_site}open/",
-    "base_click_tracking_url": f"{main_site}click/",
-    "default_metadata": {"analytics_key": "123456"}
-}
+# main_site = Myjson('marketing/funcs/Sapir.json').get("html")["main_site"]
+#
+# PYTRACKING_CONFIGURATION = {
+#     "webhook_url": f"{main_site}webhook/",
+#     "base_open_tracking_url": f"{main_site}open/",
+#     "base_click_tracking_url": f"{main_site}click/",
+#     "default_metadata": {"analytics_key": "123456"}
+# }
 
 GOOGLE_API_KEY = 'AIzaSyDW_yeWkfKrnGt05i8YnuXpUtnDO4hRhZM'

@@ -6,7 +6,8 @@ from .models import Event,Guest
 import qrcode
 from PIL import Image
 
-
+MAIN_SITE = 'http://sl-op.com:5656/'
+# MAIN_SITE = 'http://127.0.0.1:8000/'
 # Create your views here.
 
 def index(request):
@@ -55,7 +56,7 @@ class GuestView(View):
                 guest.event = event
                 guest.save()
 
-                return redirect(f'http://127.0.0.1:8000/guest/?event_id={event_id}&stage=2&guest_id={guest.id}')
+                return redirect(f'{MAIN_SITE}guest/?event_id={event_id}&stage=2&guest_id={guest.id}')
 
         elif stage == '2':
             self.health_form = HealthDeclarationForm(request.POST)
