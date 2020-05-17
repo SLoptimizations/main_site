@@ -32,5 +32,11 @@ class HealthDeclarationForm(forms.Form):
         (NO, 'כן'),
 
     ])
+    Q3 = dict(Q='האם היה לך חום ב-5 הימים האחרונים?', A=[
+        (YES, 'לא'),
+        (NO, 'כן'),
+
+    ])
     q1 = forms.ChoiceField(choices=Q1['A'], label=Q1['Q'])
     q2 = forms.ChoiceField(choices=Q2['A'], label=Q2['Q'])
+    q3 = forms.ChoiceField(choices=Q3['A'], label=Q3['Q'])
