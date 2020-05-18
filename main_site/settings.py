@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'marketing.apps.MarketingConfig',
     'crispy_forms',
     'taggit',
+    "django_tables2",
 
 ]
 

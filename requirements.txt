@@ -20,6 +20,7 @@ django-gulp==4.1.0
 django-ipware==2.1.0
 django-netfields==1.2.2
 django-phone-field==1.8.0
+django-tables2==2.3.1
 django-taggit==1.2.0
 env-tools==2.2.0
 Faker==4.0.3
