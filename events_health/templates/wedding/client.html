@@ -78,10 +78,10 @@
             <div class="row">
                 <div class="col-md">
                     <div class="card card-body">
-                        <h5>פרטי האירוע</h5>
+                        <h5>פרטי האירוע:</h5>
                         <p>תאריך: {{ event.date }}</p>
-                        <p>מיקום: {{ event.date }}</p>
-                        <p>מספר מוזמנים: {{ event.date }}</p>
+                        <p>מיקום: {{ event.event_location }}</p>
+                        <p>מספר מוזמנים: {{ guests.count }}</p>
                         <form method="get" action="">
                             <button class="btn btn-primary" type="submit">ערוך</button>
                           </form>
@@ -119,11 +119,30 @@
 
 
             <!-- Guests table -->
+
             <div class="row">
                 <div class="col-md">
                     <div class="card card-body">
-                        <h5>אורחים</h5>
-                        <table class="table table-sm">
+                        <div class="row">
+                            <div class="col-md">
+                                <h4>אורחים</h4>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="#" class="btn btn-sm btn-primary btn-success" role="button" aria-pressed="true">הפק דו"ח</a>
+                                <a href="#" class="btn btn-sm btn-outline-success" role="button" aria-pressed="true">העלאת קובץ חדש</a>
+{#                              <form method="get" action="">#}
+{#                                <button class="btn btn-primary btn-success" type="submit">הפק דו"ח</button>#}
+{#                              </form>#}
+{#                            </div>#}
+{#                             <div class="col-md">#}
+{#                              <form method="get" action="">#}
+{#                                <button class="btn btn-primary btn-success" type="submit">העלאת קובץ חדש</button>#}
+{#                              </form>#}
+                            </div>
+                        </div>
+
+
+                        <table class="table table-sm table-hover">
                             <tr>
                                 <th>שם</th>
                                 <th>גיל</th>
@@ -140,8 +159,8 @@
                                     <td>{{ guest.age }}</td>
                                     <td>{{ guest.address }}</td>
                                     <td>{{ guest.phone }}</td>
-                                    <td><a href="">ערוך</a></td>
-                                    <td><a href="">מחק</a></td>
+                                    <td><a class="btn btn-sm btn-info" href="">ערוך</a></td>
+                                    <td><a  class="btn btn-sm btn-danger" href="">מחק</a></td>
                                 </tr>
 
                             {% endfor %}
