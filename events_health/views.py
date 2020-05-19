@@ -11,7 +11,7 @@ from .tables import SimpleTable
 
 from django_filters.views import FilterView
 from django_tables2.views import SingleTableMixin
-
+from .filters import GuestFilter
 
 MAIN_SITE = 'http://sl-op.com:5656/'
 # MAIN_SITE = 'http://127.0.0.1:8000/'
@@ -26,23 +26,28 @@ class ClientView(View):
     event = Event.objects.get(url_id='s21l')
 
     def get(self, request, *args, **kwargs):
+        guests_filter = GuestFilter(request.GET, queryset=self.guests)
+        guests = guests_filter.qs
         return render(request, 'wedding/client.html',
                       {
                           'event': self.event,
-                          'guests': self.guests,
+                          'guests': guests,
+                          'guests_filter': guests_filter,
 
                        })
 
 
-def clientView(request, url_id):
-    guests = Guest.objects.all()
-    event = Event.objects.get(url_id=url_id)
-    return render(request, 'wedding/client.html',
-                  {
-                      'event': event,
-                      'guests': guests,
-
-                  })
+# def clientView(request, url_id):
+#     guests = Guest.objects.all()
+#     event = Event.objects.get(url_id=url_id)
+#     guests_filter = GuestFilter(request.GET, queryset=guests)
+#     return render(request, 'wedding/client.html',
+#                   {
+#                       'event': event,
+#                       'guests': guests,
+#                       'guests_filter': guests_filter
+#
+#                   })
 
 
 

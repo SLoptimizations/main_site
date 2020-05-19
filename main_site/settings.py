@@ -31,8 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'django_filters',
-    'address',
+
 
     'events_health.apps.EventsHealthConfig',
     'django.contrib.admin',
@@ -44,7 +43,9 @@ INSTALLED_APPS = [
     'marketing.apps.MarketingConfig',
     'crispy_forms',
     'taggit',
+    'address',
     "django_tables2",
+    "django_filters",
 
 ]
 

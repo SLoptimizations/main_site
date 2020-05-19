@@ -15,6 +15,9 @@ class GuestForm(forms.ModelForm):
             'address': _('כתובת'),
             'phone': _('טלפון'),
         }
+        # widgets = {
+        #     'address':
+        # }
 
 
 

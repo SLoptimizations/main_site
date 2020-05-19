@@ -32,12 +32,13 @@ class Event(models.Model):
 
 
 class Guest(models.Model):
-    event = models.ForeignKey(Event, on_delete=models.CASCADE, null=True)
-    name = models.CharField(max_length=60, blank=False)
-    age = models.PositiveIntegerField()
-    address = AddressField()
-    phone = models.CharField(max_length=60)  # change to phone field
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, null=True, verbose_name='אירוע')
+    name = models.CharField(max_length=60, blank=False, verbose_name='שם')
+    age = models.PositiveIntegerField(verbose_name="גיל")
+    address = AddressField(verbose_name="כתובת")
+    phone = models.CharField(max_length=60, verbose_name="מספר טלפון")  # change to phone field
     # slug = models.SlugField(unique=True)
+
 
     def __str__(self):
         return self.name

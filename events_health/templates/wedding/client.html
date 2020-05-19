@@ -1,8 +1,8 @@
 <!doctype html>
 {% load crispy_forms_tags %}
 <html lang="en">
-<head>
-    <meta charset="utf-8">
+	<head>
+		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="">
@@ -11,17 +11,20 @@
 		<!-- Bootstrap core CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 		<link href="../../static/bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css" rel="stylesheet">
 		<!-- Custom styles for this template -->
 		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
 		<link href="../../static/css/blog.css" rel="stylesheet">
 		<link href="../../static/css/carousel.css" rel="stylesheet">
-    	<link href="../../static/css/MyCss.css" rel="stylesheet" type="text/css">
-
+		<link href="../../static/css/MyCss.css" rel="stylesheet" type="text/css">
+		<link href="../../static/css/client.css" rel="stylesheet" type="text/css">
 		<!-- fonts -->
 		<link href="../../static/fonts/Rubik/Rubik-Black.ttf" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500;700&display=swap" rel="stylesheet">
 		<link href='http://serve.fontsproject.com/css?family=Ellinia+CLM:200' rel='stylesheet' type='text/css'>
+		<!-- Font Awesome -->
+		<script src="https://kit.fontawesome.com/4622f4c094.js" crossorigin="anonymous"></script>
 	</head>
 	<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&family=Varela+Round&display=swap" rel="stylesheet">
 	<body>
@@ -73,109 +76,106 @@
 		</div>
 		<!-- page -->
 		<main role="main" class="container">
-
-             <!-- Event Details -->
-            <div class="row">
-                <div class="col-md">
-                    <div class="card card-body">
-                        <h5>פרטי האירוע:</h5>
-                        <p>תאריך: {{ event.date }}</p>
-                        <p>מיקום: {{ event.event_location }}</p>
-                        <p>מספר מוזמנים: {{ guests.count }}</p>
-                        <form method="get" action="">
-                            <button class="btn btn-primary" type="submit">ערוך</button>
-                          </form>
-                    </div>
-                </div>
-
-                <div class="col-md">
-                    <div class="card card-body">
-                        <h5>מספר רשומים:</h5>
-                        <hr>
-                        <br>
-                        <h1 style="text-align: center;padding: 10px">8</h1>
-                        <br>
-                    </div>
-                </div>
-
-            </div>
-            <br>
-
-
-            <!-- search -->
-            <div class="row">
-                <div class="col">
-                    <div class="card card-body">
-                        <form method="get">
-
-                        <button class="btn btn-primary" type="submit">Search</button>
-                      </form>
-                    </div>
-                </div>
-
-            </div>
-            <br>
-
-
-
-            <!-- Guests table -->
-
-            <div class="row">
-                <div class="col-md">
-                    <div class="card card-body">
-                        <div class="row">
-                            <div class="col-md">
-                                <h4>אורחים</h4>
-                            </div>
-                            <div class="col-md-3">
-                                <a href="#" class="btn btn-sm btn-primary btn-success" role="button" aria-pressed="true">הפק דו"ח</a>
-                                <a href="#" class="btn btn-sm btn-outline-success" role="button" aria-pressed="true">העלאת קובץ חדש</a>
-{#                              <form method="get" action="">#}
-{#                                <button class="btn btn-primary btn-success" type="submit">הפק דו"ח</button>#}
-{#                              </form>#}
-{#                            </div>#}
-{#                             <div class="col-md">#}
-{#                              <form method="get" action="">#}
-{#                                <button class="btn btn-primary btn-success" type="submit">העלאת קובץ חדש</button>#}
-{#                              </form>#}
-                            </div>
-                        </div>
-
-
-                        <table class="table table-sm table-hover">
-                            <tr>
-                                <th>שם</th>
-                                <th>גיל</th>
-                                <th>כתובת</th>
-                                <th>טלפון</th>
-                                <th>ערוך</th>
-                                <th>הסר</th>
-                            </tr>
-
-                            {% for guest in  guests %}
-
-                                <tr>
-                                    <td>{{ guest.name }}</td>
-                                    <td>{{ guest.age }}</td>
-                                    <td>{{ guest.address }}</td>
-                                    <td>{{ guest.phone }}</td>
-                                    <td><a class="btn btn-sm btn-info" href="">ערוך</a></td>
-                                    <td><a  class="btn btn-sm btn-danger" href="">מחק</a></td>
-                                </tr>
-
-                            {% endfor %}
-
-
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-
-		<!-- /.container -->
-		<footer class="blog-footer">
-			<p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-			<p> <a href="#">Back to top</a> </p>
+			<!-- Event Details -->
+			<h1>מידע כללי:</h1>
+			<div class="row">
+				<div class="col-md">
+					<div class="card card-body">
+						<h5 class="card-title">פרטי האירוע:</h5>
+						<p>תאריך: {{ event.date }}</p>
+						<p>מיקום: {{ event.event_location }}</p>
+						<form method="get" action="">
+							<button class="btn btn-primary btn-info" type="submit" title="ערוך">
+								<i class="far fa-edit"></i>
+							</button>
+						</form>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="card card-body">
+						<div class="row">
+							<div class="col-md">
+								<h5>מספר מוזמנים:</h5>
+								<hr>
+								<br>
+								<h1 style="text-align: center;padding: 10px">{{ guests.count }}</h1>
+							</div>
+							<div class="col-md">
+								<h5>מספר רשומים:</h5>
+								<hr>
+								<br>
+								<h1 style="text-align: center;padding: 10px">8</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<hr>
+			<h1>פרטי האורחים:</h1>
+			<!-- search -->
+			<div class="row">
+				<div class="col">
+					<div class="card card-body form-group search-input">
+						<form class="form-inline" method="get">
+							{{ guests_filter.form }}
+							<button class="btn btn-outline-info" type="submit">חיפוש</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<br>
+			<!-- Guests table -->
+			<div class="row">
+				<div class="col-md">
+					<div class="card card-body">
+						<div class="row">
+							<div class="col-md">
+								<a href="#" class="btn btn-sm btn-primary btn-success" role="button" aria-pressed="true">הפק דו"ח</a>
+								<a href="#" class="btn btn-sm btn-info" role="button" aria-pressed="true">העלאת קובץ חדש</a>
+							</div>
+						</div>
+						<br>
+						<div class="wrapper-table">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th data-field="name">שם</th>
+										<th data-field="age">גיל</th>
+										<th data-field="address">כתובת</th>
+										<th data-field="phone">טלפון</th>
+										<th>ערוך</th>
+										<th>הסר</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for guest in  guests %}
+									<tr>
+										<td>{{ guest.name }}</td>
+										<td>{{ guest.age }}</td>
+										<td>{{ guest.address }}</td>
+										<td>{{ guest.phone }}</td>
+										<td>
+											<a class="btn btn-sm btn-outline-info" href=""> <i class="far fa-edit"></i></a>
+										</td>
+										<td>
+											<a class="btn btn-sm btn-outline-danger" href=""><i class="fas fa-trash"></i></a>
+										</td>
+									</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<!-- Footer Section end -->
+		<br>
+		<footer id="sticky-footer" class="py-4 bg-dark text-white-50 " style="margin-bottom: -50px;">
+			<div class="container text-center">
+				<small>Copyright &copy; SLop. 2020 </small>
+			</div>
 		</footer>
 		<!-- Bootstrap core JavaScript
     ================================================== -->
@@ -186,5 +186,6 @@
 		<script src="../../static/assets/js/jquery.min.js"></script>
 		<script src="../../static/assets/js/popper.js"></script>
 		<script src="../../static/bootstrap/js/bootstrap.min.js"></script>
+		<!-- Latest compiled and minified JavaScript -->
 	</body>
 </html>
