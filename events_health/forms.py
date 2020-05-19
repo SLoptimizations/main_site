@@ -28,6 +28,10 @@ class GuestForm(forms.ModelForm):
         # }
 
 
+class UploadFileForm(forms.Form):
+    file = forms.FileField(label_suffix="", label="",)
+
+
 
 class HealthDeclarationForm(forms.Form):
     YES = 10

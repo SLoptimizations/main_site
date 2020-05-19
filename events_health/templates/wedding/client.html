@@ -56,8 +56,41 @@
 						<div class="row">
 							<div class="col-md">
 								<a href="#" class="btn btn-sm btn-primary btn-success" role="button" aria-pressed="true">הפק דו"ח</a>
-								<a href="#" class="btn btn-sm btn-info" role="button" aria-pressed="true">העלאת קובץ חדש</a>
+								<a href="{% url 'events_health:add-file' %}" class="btn btn-sm btn-info" role="button" aria-pressed="true">העלאת קובץ חדש</a>
 								<a href="{% url 'events_health:create-guest' pk=event.pk %}" class="btn btn-sm btn-info" role="button" aria-pressed="true" title="הוספת אורח לרשימה">הוספה <i class="fas fa-plus"></i></a>
+                                <input class="btn btn-outline-info" type="file" >
+                                <input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple />
+
+                                <script>
+
+                                    var inputs = document.querySelectorAll( '.inputfile' );
+Array.prototype.forEach.call( inputs, function( input )
+{
+	var label	 = input.nextElementSibling,
+		labelVal = label.innerHTML;
+
+	input.addEventListener( 'change', function( e )
+	{
+		var fileName = '';
+		if( this.files && this.files.length > 1 )
+			fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+		else
+			fileName = e.target.value.split( '\' ).pop();
+
+		if( fileName )
+			label.querySelector( 'span' ).innerHTML = fileName;
+		else
+			label.innerHTML = labelVal;
+	});
+});
+                                </script>
+
+                                <form enctype="multipart/form-data" method="post" action="">
+
+                                    {{ upload_form }}
+                                </form>
+
+
 							</div>
 						</div>
 						<br>

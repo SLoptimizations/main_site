@@ -1,11 +1,10 @@
-from django.shortcuts import render, redirect
-from .forms import GuestForm, HealthDeclarationForm
+from django.shortcuts import render, redirect, HttpResponseRedirect
+from .forms import GuestForm, HealthDeclarationForm, UploadFileForm, EventForm
 from django.views.generic import TemplateView, CreateView
 from django.views import View
 from django.views.generic.edit import FormView, CreateView, UpdateView
 from .models import Event, Guest
 from .tables import SimpleTable
-from .forms import EventForm
 from django_filters.views import FilterView
 from django_tables2.views import SingleTableMixin
 from .filters import GuestFilter
@@ -29,12 +28,14 @@ class ClientView(View):
     def get(self, request, *args, **kwargs):
         event = Event.objects.get(pk=1)
         guests_filter = GuestFilter(request.GET, queryset=self.guests)
+        upload_form = UploadFileForm()
         guests = guests_filter.qs
         return render(request, 'wedding/client.html',
                       {
                           'event': event,
                           'guests': guests,
                           'guests_filter': guests_filter,
+                          'upload_form': upload_form,
 
                       })
 
@@ -150,9 +151,19 @@ class ClientRegisterView(CreateView):
     fields = "__all__"
 
 
-class TableView(SingleTableMixin, FilterView):
-    table_class = SimpleTable
-    model = Guest
-    template_name = "wedding/table.html"
+class FileView(View):
+    form = UploadFileForm()
+    def get(self, request, *args, **kwargs):
+        return render(request, 'wedding/client_update.html',
+                      {
 
-    # filterset_class = GuestFilter
+                          'form': self.form,
+
+                      })
+
+    def post(self, request):
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            print('success')
+            # handle_uploaded_file(request.FILES['file'])
+            return HttpResponseRedirect('/success/url/')

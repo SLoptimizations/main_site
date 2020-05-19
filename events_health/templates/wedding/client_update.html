@@ -7,7 +7,7 @@
         <br>
     <div class="card card-body">
         <div class="form-group search-input large_input">
-            <form method="post">{% csrf_token %}
+            <form method="post" enctype="multipart/form-data">{% csrf_token %}
             {{ form.as_p }}
             <p>{{ comment }}</p>
                 <br>

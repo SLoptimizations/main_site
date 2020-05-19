@@ -42,7 +42,7 @@ class Guest(models.Model):
     name = models.CharField(max_length=60, blank=False, verbose_name='שם')
     age = models.PositiveIntegerField(verbose_name="גיל")
     address = AddressField(on_delete=models.CASCADE, verbose_name="כתובת")
-    phone = models.CharField(max_length=60, verbose_name="מספר טלפון")  # change to phone field
+    phone = models.CharField(max_length=60, verbose_name="מספר טלפון", unique=True)  # change to phone field
     status = models.CharField(max_length=60, choices=STATUS, default=NO, verbose_name="סטטוס")
     SMS_count = models.PositiveIntegerField(default=0, verbose_name="מספר הודעות שנשלחו")
 
