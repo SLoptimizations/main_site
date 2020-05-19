@@ -64,6 +64,23 @@ div.search-input button {
     }
 }
 
+/*---Form---*/
+div.large_input input{
+    width: 30%;
+    border-color: black;
+    margin: auto;
+
+}
+div.large_input input[type=url]{
+
+}
+div.large_input input .btn{
+    width: 10%;
+    margin: auto;
+
+}
+
+
 /*---Table---*/
 .table-hover tbody tr:hover {
     color: #212529;

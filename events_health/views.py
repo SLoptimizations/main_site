@@ -3,52 +3,40 @@ from .forms import GuestForm, HealthDeclarationForm
 from django.views.generic import TemplateView, CreateView
 from django.views import View
 from django.views.generic.edit import FormView, CreateView, UpdateView
-from .models import Event,Guest
-import qrcode
-from PIL import Image
-import django_tables2 as tables
+from .models import Event, Guest
 from .tables import SimpleTable
-
+from .forms import EventForm
 from django_filters.views import FilterView
 from django_tables2.views import SingleTableMixin
 from .filters import GuestFilter
 
 MAIN_SITE = 'http://sl-op.com:5656/'
+
+
 # MAIN_SITE = 'http://127.0.0.1:8000/'
 # Create your views here.
 
 def index(request):
     return render(request, 'wedding/guest_register.html')
+
+
 #
 #
 class ClientView(View):
     guests = Guest.objects.all()
-    event = Event.objects.get(url_id='s21l')
+
 
     def get(self, request, *args, **kwargs):
+        event = Event.objects.get(pk=1)
         guests_filter = GuestFilter(request.GET, queryset=self.guests)
         guests = guests_filter.qs
         return render(request, 'wedding/client.html',
                       {
-                          'event': self.event,
+                          'event': event,
                           'guests': guests,
                           'guests_filter': guests_filter,
 
-                       })
-
-
-# def clientView(request, url_id):
-#     guests = Guest.objects.all()
-#     event = Event.objects.get(url_id=url_id)
-#     guests_filter = GuestFilter(request.GET, queryset=guests)
-#     return render(request, 'wedding/client.html',
-#                   {
-#                       'event': event,
-#                       'guests': guests,
-#                       'guests_filter': guests_filter
-#
-#                   })
-
+                      })
 
 
 class GuestView(View):
@@ -70,16 +58,12 @@ class GuestView(View):
         elif stage == '2':
             return render(request, 'wedding/wedding.html',
                           {
-                           'form': self.health_form,
-                           'event': event
-                           })
+                              'form': self.health_form,
+                              'event': event
+                          })
         elif stage == '3':
-            # img = qrcode.make('Some data here')
-            # img = img.get_image()
-            # print(img)
-            # print(img)
-            result = request.GET.get('result', '')
 
+            result = request.GET.get('result', '')
 
     def post(self, request, *args, **kwargs):
 
@@ -109,7 +93,6 @@ class GuestView(View):
 
                 # update DB with result here.
 
-
                 # return by result
 
                 # return redirect(f'http://127.0.0.1:8000/guest/?event_id=222&stage=3&guest_id={guest_id}')
@@ -124,18 +107,42 @@ class GuestView(View):
         else:
             print('error')
 
-# class ClientView(FormView):
-#     template_name = 'wedding/client.html'
-#     form_class = GuestForm
-#     success_url = '/thanks/'
 
-
-
-class UpdateView(UpdateView):
-    template_name = 'wedding/client.html'
+class EventUpdateView(UpdateView):
+    template_name = 'wedding/client_update.html'
     model = Event
-    fields = "__all__"
+    form_class = EventForm
+    extra_context = {
+        "header": "עריכת פרטי אירוע:",
+        "comment": "*התמונות יוצגו באתר, ניתן להוסיף עד 3 תמונות. במידה ולא יועלו תמונות כלל יוצגו תמונות האתר.",
+
+    }
+
     template_name_suffix = '_update_form'
+
+
+class GuestUpdateView(UpdateView):
+    template_name = 'wedding/client_update.html'
+    model = Guest
+    form_class = GuestForm
+    extra_context = {
+        "header": "עריכת פרטי אורח:",
+        "comment": "*לאחר שמירת השינויים לא ניתן לשחזר את המידע הקודם.",
+
+    }
+
+    template_name_suffix = '_update_form'
+
+
+class GuestCreateView(CreateView):
+    template_name = 'wedding/client_update.html'
+    model = Guest
+    form_class = GuestForm
+    extra_context = {
+        "header": "הוספת אורח חדש:",
+        "comment": " ",
+
+    }
 
 class ClientRegisterView(CreateView):
     template_name = 'wedding/client_register.html'

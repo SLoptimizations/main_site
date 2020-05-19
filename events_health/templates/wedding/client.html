@@ -1,6 +1,5 @@
 {% extends "wedding/client_base.html" %}
 
-{% block title %}כותרת{% endblock %}
 
 {% block content %}
 
@@ -12,11 +11,8 @@
 						<h5 class="card-title">פרטי האירוע:</h5>
 						<p>תאריך: {{ event.date }}</p>
 						<p>מיקום: {{ event.event_location }}</p>
-						<form method="get" action="">
-							<button class="btn btn-primary btn-info" type="submit" title="ערוך">
-								<i class="far fa-edit"></i>
-							</button>
-						</form>
+                        <p><a class="btn btn-info" href="{% url 'events_health:update-event' pk=event.pk %}" title="ערוך"><i class="far fa-edit"></i></a></p>
+
 					</div>
 				</div>
 				<div class="col-md">
@@ -61,7 +57,7 @@
 							<div class="col-md">
 								<a href="#" class="btn btn-sm btn-primary btn-success" role="button" aria-pressed="true">הפק דו"ח</a>
 								<a href="#" class="btn btn-sm btn-info" role="button" aria-pressed="true">העלאת קובץ חדש</a>
-								<a href="#" class="btn btn-sm btn-info" role="button" aria-pressed="true" title="הוספת אורח לרשימה">הוספה</a>
+								<a href="{% url 'events_health:create-guest' pk=event.pk %}" class="btn btn-sm btn-info" role="button" aria-pressed="true" title="הוספת אורח לרשימה">הוספה <i class="fas fa-plus"></i></a>
 							</div>
 						</div>
 						<br>
@@ -87,7 +83,9 @@
 										<td>{{ guest.phone }}</td>
 										<td>{{ guest.status }}</td>
 										<td>
-											<a class="btn btn-sm btn-outline-info" href=""> <i class="far fa-edit"></i></a>
+{#                                            <p><a class="btn btn-info" href="{% url 'events_health:update-event' pk=event.pk %}" title="ערוך"><i class="far fa-edit"></i></a></p>#}
+
+											<a class="btn btn-sm btn-outline-info" href="{% url 'events_health:update-guest' pk=guest.pk %}"> <i class="far fa-edit"></i></a>
 										</td>
 										<td>
 											<a class="btn btn-sm btn-outline-danger" href=""><i class="fas fa-trash"></i></a>

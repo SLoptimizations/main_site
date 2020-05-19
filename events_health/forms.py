@@ -1,7 +1,15 @@
 from django import forms
-from .models import Guest
+from .models import Guest, Event
 from django.utils.translation import gettext_lazy as _
 
+
+class EventForm(forms.ModelForm):
+    # event = forms.For
+
+    class Meta:
+        model = Event
+        fields = "__all__"
+        exclude = ['url_id']
 
 class GuestForm(forms.ModelForm):
     # event = forms.For
