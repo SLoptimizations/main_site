@@ -32,12 +32,19 @@ class Event(models.Model):
 
 
 class Guest(models.Model):
+    NO = 0
+    YES = 1
+    STATUS = [
+        (NO, 'לא רשום'),
+        (YES, 'רשום')]
+
     event = models.ForeignKey(Event, on_delete=models.CASCADE, null=True, verbose_name='אירוע')
     name = models.CharField(max_length=60, blank=False, verbose_name='שם')
     age = models.PositiveIntegerField(verbose_name="גיל")
     address = AddressField(verbose_name="כתובת")
     phone = models.CharField(max_length=60, verbose_name="מספר טלפון")  # change to phone field
-    # slug = models.SlugField(unique=True)
+    status = models.CharField(max_length=60, choices=STATUS, default=NO, verbose_name="סטטוס")
+    SMS_count = models.PositiveIntegerField(default=0, verbose_name="מספר הודעות שנשלחו")
 
 
     def __str__(self):
