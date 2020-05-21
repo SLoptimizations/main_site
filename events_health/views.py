@@ -8,7 +8,7 @@ from .tables import SimpleTable
 from django_filters.views import FilterView
 from django_tables2.views import SingleTableMixin
 from .filters import GuestFilter
-
+from events_health.funcs.main import load_phones_from_xl
 MAIN_SITE = 'http://sl-op.com:5656/'
 
 
@@ -23,10 +23,8 @@ def index(request):
 #
 class ClientView(View):
     guests = Guest.objects.all()
-
-
     def get(self, request, *args, **kwargs):
-        event = Event.objects.get(pk=1)
+        event = Event.objects.get(pk=kwargs['pk'])
         guests_filter = GuestFilter(request.GET, queryset=self.guests)
         upload_form = UploadFileForm()
         guests = guests_filter.qs
@@ -163,7 +161,12 @@ class FileView(View):
 
     def post(self, request):
         form = UploadFileForm(request.POST, request.FILES)
+        # f=request.FILES['file']
         if form.is_valid():
-            print('success')
+            load_phones_from_xl(request.FILES['file'])
+
+            # with open('some/file/name.txt', 'wb+') as destination:
+            #     for chunk in f.chunks():
+            #         destination.write(chunk)
             # handle_uploaded_file(request.FILES['file'])
             return HttpResponseRedirect('/success/url/')
