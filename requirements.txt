@@ -12,7 +12,7 @@ colorama==0.4.3
 configparser==5.0.0
 cryptography==2.9.2
 distlib==0.3.0
-Django==3.0.3
+Django==3.1.9
 django-address==0.2.2
 django-crispy-forms==1.9.0
 django-filter==2.2.0
